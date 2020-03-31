@@ -1,0 +1,27 @@
+{
+  "name": "hw15-men-crud",
+  "version": "1.0.0",
+  "description": "MEN stack hw",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/jacobbisaacson/hw15-MEN-CRUD.git"
+  },
+  "keywords": [
+    "crud",
+    "mongoose",
+    "express",
+    "mongodb",
+    "restful",
+    "navigable"
+  ],
+  "author": "jacob isaacson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7"
+  }
+}
