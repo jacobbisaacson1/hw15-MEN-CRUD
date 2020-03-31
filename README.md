@@ -71,3 +71,5 @@ a true effort and not taking the easy way out.  _No Pain, No Gain!_
 
 * Read [this section of the mongoose documentation on validation](https://mongoosejs.com/docs/validation.html) and try adding some other types of validation to your model.
 
+* Experiment with the awesome methods you can use to build complex queries in mongoose [here](https://mongoosejs.com/docs/queries.html) and [here (advanced)](https://mongoosejs.com/docs/api/query.html).  You can do some pretty sophisticated `.find()` queries using their query builder helper methods (like `.where()` or `.gte()` or `.limit()` or `.sort()`, etc).
+
