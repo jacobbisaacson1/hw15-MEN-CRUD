@@ -1,6 +1,8 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const PORT = process.env.PORT
 // const methodOverride = require('method-override')
 
 require('./db/db')
@@ -10,8 +12,31 @@ app.use((req, res, next) => {
   next()
 })
 
+app.get('*', (req, res) => {
+	res.status(404).render('404.ejs')
+})
+
 app.use(express.static('public'))
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // app.use(methodOverride('_method'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.listen(PORT, () => {
+  const d = new Date()
+  console.log(`${d.toLocaleString()}: Server running on port ${PORT}`)
+})
