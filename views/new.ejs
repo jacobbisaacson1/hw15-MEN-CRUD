@@ -1,0 +1,31 @@
+<%- include('./partials/header.ejs') %>
+
+  <h1>Talk about my DOG!</h1>
+
+  <form method="POST" action="/bruna">
+    <fieldset>
+      <label for="mood">What's Bruna's Mood?</label>
+        <select name="moods" id="mood-select">
+          <option value="">--Please choose an mood--</option>
+          <option value="sweet">Sweet</option>
+          <option value="special">Special</option>
+          <option value="tired">Tired</option>
+          <option value="super-cute">Super Cute</option>
+          <option value="playful">Playful</option>
+          <option value="mad">Mad</option>
+        </select>
+    </fieldset>
+    <fieldset>
+      <label for="cuteness">Why is my DOG SO CUTE?!</label>
+      <input id="cuteness" type="number" name="cuteness" placeholder="How cute is Bruna?" />
+    </fieldset>
+    <fieldset>
+      <label for="hungry">She's Hungers!</label>
+      <input id="hungry" type="checkbox" name="hungry">
+    </fieldset>
+    <button>Add the fruit!</button>
+
+  </form>
+
+
+<%- include('./partials/footer.ejs') %>
