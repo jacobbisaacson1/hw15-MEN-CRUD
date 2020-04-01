@@ -40,7 +40,8 @@ router.post('/', (req, res, next) => {
       } else {
           console.log("\n here is the bruna we created");
           console.log(createdBruna);
-          res.redirect('/bruna')
+          // res.redirect('/bruna')
+          res.send('hitting create route')
       }
   })
 })
