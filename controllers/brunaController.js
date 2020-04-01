@@ -21,7 +21,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   console.log("\nhere is req.body -- it was added by body-parser");
-  console.log(req.body);
+  console.dir(req.body);
 
   const brunaToAdd = {
     mood: req.body.mood,
@@ -40,12 +40,11 @@ router.post('/', (req, res, next) => {
       } else {
           console.log("\n here is the bruna we created");
           console.log(createdBruna);
-          // res.redirect('/bruna')
-          res.send('hitting create route')
+          res.redirect('/bruna')
+          // res.send('hitting create route')
       }
   })
 })
-
 
 module.exports = router
 

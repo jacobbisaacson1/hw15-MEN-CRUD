@@ -9,7 +9,7 @@ console.log(PORT);
 require('./db/db')
 
 app.use((req, res, next) => {
-  console.log("\nHi I am custom middleware, every request passes through me");
+  console.log("\nI am middleware, requests pass through me");
   next()
 })
 

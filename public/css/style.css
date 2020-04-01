@@ -38,6 +38,9 @@ img {
 	height: 75%;
 }
 
+form {
+  padding-bottom: 10px;
+}
 
 label, footer {
     font-family: sans-serif;
@@ -54,6 +57,5 @@ select {
 }
 
 .output {
-    background: center/cover no-repeat url('/media/examples/hamster.jpg');
     position: relative;
 }

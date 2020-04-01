@@ -16,7 +16,8 @@ const brunaSchema = new mongoose.Schema({
 	scratchesNeed: {
 		type: Boolean,
 		required: true,
-	}
+	},
+	imgURL: String
 })
 
 const Bruna = mongoose.model('Bruna', brunaSchema)
