@@ -8,7 +8,7 @@ const brunaSchema = new mongoose.Schema({
 	cuteness: {
 		type: Number,
 		required: true,
-	}.
+	},
 	hungry: {
 		type: Boolean,
 		required: true
@@ -20,4 +20,4 @@ const brunaSchema = new mongoose.Schema({
 })
 
 const Bruna = mongoose.model('Bruna', brunaSchema)
-model.exports = Bruna
+module.exports = Bruna
