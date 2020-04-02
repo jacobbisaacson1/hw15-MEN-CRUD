@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
-const brunaSchema = new mongoose.Schema({
+const dogSchema = new mongoose.Schema({
+	name: {
+		type: String,
+		required: true,
+	},
 	mood: {
 		type: String,
 		required: true,
@@ -16,9 +20,8 @@ const brunaSchema = new mongoose.Schema({
 	scratchesNeed: {
 		type: Boolean,
 		required: true,
-	},
-	imgURL: String
+	}
 })
 
-const Bruna = mongoose.model('Bruna', brunaSchema)
-module.exports = Bruna
+const Dog = mongoose.model('Dog', dogSchema)
+module.exports = Dog

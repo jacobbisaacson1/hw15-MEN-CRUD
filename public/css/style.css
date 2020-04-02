@@ -34,7 +34,7 @@ main {
 }
 
 img {
-	width: 95%;
+	width: 75%;
 	height: 75%;
 }
 
@@ -59,3 +59,7 @@ select {
 .output {
     position: relative;
 }
+
+
+
+
