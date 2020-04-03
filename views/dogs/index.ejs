@@ -1,0 +1,16 @@
+<%- include('../partials/header.ejs') %>
+
+  <h2>Look at These Pups!</h2>
+
+  <ul>
+    <% dogs.forEach(dog => { %>
+      <li>
+        <a href="/dogs/<%= dog.id %>">
+          <%= dog.name %>        
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+
+
+<%- include('../partials/footer.ejs') %>

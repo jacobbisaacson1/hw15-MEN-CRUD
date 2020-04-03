@@ -1,10 +1,10 @@
-<%- include('./partials/header.ejs') %>
+<%- include('../partials/header.ejs') %>
 
-  <h1>Talk about my DOG!</h1>
+  <h1>Say things about your DOG!</h1>
 
   <form method="POST" action="/dog">
     <fieldset>
-      <label for="mood">What's Bruna's Mood?</label>
+      <label for="mood">What's Your Dog's Mood?</label>
         <select name="moods" id="mood-select">
           <option value="">--Please choose an mood--</option>
           <option value="sweet">Sweet</option>
@@ -16,19 +16,19 @@
         </select>
     </fieldset>
     <fieldset>
-      <label for="cuteness">Why is my DOG SO CUTE?!</label>
-      <input id="cuteness" type="number" name="cuteness" placeholder="How cute is Bruna?" />
+      <label for="cuteness">How Cute?!:</label>
+      <input id="cuteness" type="number" name="cuteness" placeholder="How cute?" />
     </fieldset>
     <fieldset>
-      <label for="hungry">She's Hungers!</label>
+      <label for="hungry">Hungers!?</label>
       <input id="hungry" type="checkbox" name="hungry">
     </fieldset>
     <fieldset>
-      <label for="scratchesNeeded">sHe nEeDs ScRaTcHeS!</label>
+      <label for="scratchesNeeded">nEeDs ScRaTcHeS!</label>
       <input id="scratchesNeeded" type="checkbox" name="scratchesNeeded">
     </fieldset>
-    <button>Talk about my DOG!</button>
+    <button>Talk about your DOG!</button>
 
   </form>
 
-<%- include('./partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>

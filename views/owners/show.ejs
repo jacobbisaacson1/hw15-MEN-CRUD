@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs') %>
+
+  <h2><%= owner.title %>(Article Show)</h2>
+  <small>
+    (<%= owner.posted.toLocaleString() %>)
+    by: 
+    <a href="/dogs/<%= owner.dog.id %>">
+      <%= owner.dog.name %>    
+    </a>
+  </small>
+
+  <article>
+    <%= owner.name %>
+  </article>
+
+  <div>
+    <a href="/owners/<%= owner.id %>/edit">Edit this Human</a>
+  </div>
+
+  <form method="POST" action="/owners/<%= owner.id %>?_method=DELETE">
+    <button> Delete this Human </button>
+  </form>
+
+<%- include('../partials/footer.ejs') %>

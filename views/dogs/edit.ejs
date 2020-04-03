@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs') %>
+
+  <h2> Edit <%= dog.name %></h2>
+
+  <form method="POST" action="/dog/<%= dog.id %>?_method=PUT">
+    <fieldset>
+      <label for="name"> Name: </label>
+      <input 
+        id="name" 
+        type="text" 
+        name="name" 
+        placeholder="Enter New Dog Name"
+        value="<%= dog.name %>"
+      />
+    </fieldset> 
+    <button>Update DOGE!</button>   
+  </form>
+
+<%- include('../partials/footer.ejs') %>

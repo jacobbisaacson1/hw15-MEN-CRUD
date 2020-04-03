@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') %>
+
+  <h2>Some Humans are OK, I guess</h2>
+
+  <ul>
+    <% owners.forEach((article) => { %>
+      <li>
+        <div>
+          <strong>
+            <a href="/owners/<%= owner.id %>">            
+              <%= owner.title %>
+            </a>
+          </strong>
+        </div>
+        <div>
+          <small><%= owner.posted.toLocaleString() %></small>         
+        </div>
+        <div>
+          (by: <%= owner.dog.name %>)
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+
+<%- include('../partials/footer.ejs') %>

@@ -7,6 +7,8 @@ const Owner = require('../models/owner')
 router.get('/', async (req, res, next) => {
   try {
     const foundDogs = await Dog.find({}).populate('dogs')
+    console.log("\nfound dogs")
+    console.log(foundDogs);
     res.render('dogs/index.ejs', {
       dogs: foundDogs
     })
@@ -16,8 +18,72 @@ router.get('/', async (req, res, next) => {
 })
 
 router.get('/new', (req, res) => {
-    res.render('new.ejs')
+    res.render('dogs/new.ejs')
 })
+
+router.get('/:id', async (req, res, next) => {
+    try {
+      
+        const foundDog = await Dog.findById(req.params.id)
+        const foundOwners = await Owner.find({
+            dog: req.params.id
+        })
+        res.render('dogs/show.ejs', {
+            dog: foundDog,
+            owners: foundOwners
+        })
+    } catch (err) {
+        next(err)
+    }
+})
+
+router.post('/', async (req, res, next) => {
+    try {
+        
+        const createdDog = await Dog.create(req.body)
+        console.log("dogogogogogogoogogog");
+        res.redirect('/dogs')
+    } catch (err) {
+        next(err)
+    }
+})
+
+router.delete('/:id', async (req, res, next) => {
+    try {
+
+        const ownerDeleteError = await owner.remove({
+            dog: req.params.id
+        })
+        const deletedDog = await Dog.findByIdAndRemove(req.params.id)
+        res.redirect('/dogs')
+    } catch (err) {
+        next(err)
+    }
+})
+
+router.get('/:id/edit', async (req, res, next) => {
+    try {
+
+        const foundDog = await Dog.findById(req.params.id)
+        res.render('dogs/edit.ejs', {
+            dog: foundDog
+        })
+    } catch(err) {
+        next(err)
+    }
+})
+
+router.put('/:id', async (req, res, next) => {
+    try {
+        const updatedDog = await Dog.findByIdAndUpdate(req.params.id, req.body, {
+            new: true
+        })
+        res.redirect(`/dogs/${updatedDog._id}`)
+    } catch (err) {
+        next(err)
+    }
+})
+
 
 
 // router.get('/', (req, res, next) => {

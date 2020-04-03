@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-// const methodOverride = require('method-override')
+const methodOverride = require('method-override')
 const PORT = process.env.PORT
 console.log(PORT);
 
@@ -10,7 +10,7 @@ require('./db/db')
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false })) // urlencoded is for forms
-// app.use(methodOverride('_method'))
+app.use(methodOverride('_method'))
 
 const dogController = require('./controllers/dogController')
 app.use('/dogs', dogController)
