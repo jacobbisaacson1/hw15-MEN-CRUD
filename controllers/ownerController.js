@@ -59,6 +59,35 @@ router.delete('/:id', (req, res, next) => {
     })
 })
 
+// edit
+
+router.get('/:id/edit', (req, res, next) => {
+    Owner.findById(req.params.id, (err, foundOwner) => {
+        if(err) next(err)
+            else {
+                res.render('owners/edit.ejs', {
+                    owner: foundOwner
+                })
+            }
+    })
+})
+
+
+//update
+router.put('/:id', (req, res, next) => {
+    Owner.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true},
+        (err, updatedOwner) => {
+          if(err) next(err) 
+            else {
+                res.redirect(`/owners/${updatedOwner._id}`)
+            }
+        }
+    )
+})
+
 // article index route: GET /articles
 // router.get('/', async (req, res, next) => {
 //     try {

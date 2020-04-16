@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const dogSchema = new mongoose.Schema({
-	name: {
+	dogName: {
 		type: String,
 		required: true,
 	},
@@ -13,13 +13,9 @@ const dogSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
-	hungry: {
-		type: Boolean,
-		required: true
-	},
-	scratchesNeed: {
-		type: Boolean,
-		required: true,
+	owner: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "Owner"
 	}
 })
 

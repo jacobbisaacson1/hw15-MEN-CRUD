@@ -3,6 +3,10 @@
 
   <h2><%= owner.name %></h2>
 
+  <div>
+    <a href="/owners/<%= owner.id %>/edit">(Edit <%= owner.name %>)</a>
+  </div>
+
   <form method="POST" action="/owners/<%= owner.id %>?_method=DELETE">
     <button>Delete <%= owner.name %></button>
   </form>
