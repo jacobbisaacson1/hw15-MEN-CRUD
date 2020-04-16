@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-// const Dog = require('../models/dog')
+const Dog = require('../models/dog')
 const Owner = require('../models/owner')
 
 router.get('/new', (req, res, next) => {
@@ -8,13 +8,20 @@ router.get('/new', (req, res, next) => {
         if(err) next(err)
             else {
                 res.render('dogs/new.ejs', {
-                    owner: foundOwners
+                    owners: foundOwners
                 })
             }
     })
 })
 
-
+router.post('/', (req, res, next) => {
+    Dog.create(req.body, (err, createdDog) => {
+        if(err) next(err)
+            else {
+                res.send(createdDog)
+            }
+    })
+})
 
 // get  index
 // router.get('/', async (req, res, next) => {
