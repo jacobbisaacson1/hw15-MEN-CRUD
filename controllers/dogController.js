@@ -46,6 +46,16 @@ router.post('/', (req, res, next) => {
     })
 })
 
+//delete
+router.delete('/:id', (req, res, next) => {
+    Dog.findByIdAndRemove(req.params.id, (err, deletedDog) => {
+        if(err) next(err)
+            else {
+                res.redirect('/owners/' + deletedDog.owner)
+            }
+        })
+    })
+
 // get  index
 // router.get('/', async (req, res, next) => {
 //   try {
