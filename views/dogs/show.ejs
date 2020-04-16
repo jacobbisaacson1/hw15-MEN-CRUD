@@ -13,6 +13,11 @@
   </article>
 
   <h4>Dog Admin</h4>
+
+  <div>
+    <a href="/dogs/<%= dog.id %>/edit">Edit this Dog</a>
+  </div>
+
   <form method="POST" action="/dogs/<%= dog.id %>?_method=DELETE">
     <button>Delete this pupper... how could you?!</button>
   </form>

@@ -1,19 +1,44 @@
 <%- include('../partials/header.ejs') %>
 
-  <h2> Edit <%= dog.name %></h2>
+ <h2>Edit Dog</h2>
 
-  <form method="POST" action="/dog/<%= dog.id %>?_method=PUT">
-    <fieldset>
-      <label for="name"> Name: </label>
-      <input 
-        id="name" 
-        type="text" 
-        name="name" 
-        placeholder="Enter New Dog Name"
-        value="<%= dog.name %>"
-      />
-    </fieldset> 
-    <button>Update DOGE!</button>   
-  </form>
+ <form method="POST" action="/dogs/<%= dog.id %>?_method=PUT">
+   <fieldset>
+      <div>
+        <label for="owner">Choose Owner:</label>
+        <select id="owner" name="owner">
+          <% owners.forEach(owner => { %>
+            <option value="<%= owner.id %>"  
+              <% if(owner.id == dog.owner) { %>
+                selected
+              <% } %>
+            ><%= owner.name %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div>
+        <label for="dogName">Dog's Name:</label>
+        <input 
+          id="dogName" 
+          type="text" 
+          name="dogName" 
+          value="<%= dog.dogName %>"
+          placeholder="New Dog name"
+        />
+      </div>
+      <div>
+        <label for="mood">Dog's Mood:</label>
+        <input 
+          id="mood" 
+          type="text" 
+          name="mood" 
+          value="<%= dog.mood %>"
+          placeholder="New Dog Mood"
+        />
+      </div>
+      <button>Update Dog</button>
+   </fieldset>
+ </form>
 
 <%- include('../partials/footer.ejs') %>

@@ -5,12 +5,9 @@
   <ul>
     <% dogs.forEach((dog) => { %>
       <li>
-        <div>
+        <a href="/dogs/<%= dog.id %>">
           <%= dog.dogName %>
-        </div>
-        <div>
-          (owner: <%= dog.owner.name %>)
-        </div>
+        </a>
       </li>
     <% }) %>
   </ul>
