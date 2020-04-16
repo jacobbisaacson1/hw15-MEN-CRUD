@@ -6,18 +6,14 @@ const ownerSchema = new mongoose.Schema({
 		required: true,
 	},
 	scratchesToGive: {
-		type: Number,
+		type: Boolean,
 		required: true,
-  	}, 
-  	posted: {
-    	type: Date,
-    	default: Date.now
-  	},
-  	dog: {
-    	type: mongoose.Schema.Types.ObjectId,
-    	required: true,
-    	ref: 'Dog'
-  }
+  	}
+  // 	dog: {
+  //   	type: mongoose.Schema.Types.ObjectId,
+  //   	required: true,
+  //   	ref: 'Dog'
+  // }
 })
 
 const Owner = mongoose.model('Owner', ownerSchema)

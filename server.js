@@ -4,8 +4,9 @@ const app = express()
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const PORT = process.env.PORT
-console.log(PORT);
 
+
+// connect to db
 require('./db/db')
 
 app.use(express.static('public'))
@@ -17,8 +18,8 @@ app.use('/dogs', dogController)
 
 // NEED TO UNCOMMENT once it's made
 
-// const ownerController = require('./controllers/ownerController')
-// app.use('/owners', ownerController)
+const ownerController = require('./controllers/ownerController')
+app.use('/owners', ownerController)
 
 app.get('/', (req, res) => {
   res.render('home.ejs')

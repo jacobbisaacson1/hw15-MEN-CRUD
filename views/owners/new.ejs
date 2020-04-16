@@ -1,40 +1,27 @@
 <%- include('../partials/header.ejs') %>
 
-  <h2>Add a Human dog owner!</h2>
 
-  <form method="POST" action="/owners">
+<h2>Create New Owner</h2>
 
+  <form>
     <fieldset>
-
-      <div>
-        <label for="dog-select">Choose a Dog:</label>
-        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select -->
-        <select name="dog" id="dog-select">
-          <option value="" disabled selected>(choose a dog)</option>
-          <% dogs.forEach((dog) => { %>
-            <option value="<%= dog.id %>"><%= dog.name %></option>
-          <% }) %>
-        </select>        
-      </div>
-
-      <div>
-        <label for="title">Human Name:</label>
-        <input 
-          id="title" 
-          type="text" 
-          name="title" 
-          placeholder="Enter Human's Name" 
-        />        
-      </div>
+      <label for="name">Name:</label>
+      <input 
+        id="name" 
+        type="text" 
+        name="name" 
+        placeholder="Enter Dog Owner's Name" 
+      />
+    </fieldset>
 
     <fieldset>
       <label for="scratchesToGive">Do you Give Scratches?</label>
       <input id="scratchesToGive" type="checkbox" name="scratchesToGive">
-    </fieldset>
+    </fieldset> 
 
 
-    </fieldset>
-    <button>Create Humanb</button>
+    <button>Add Human</button>   
   </form>
+
 
 <%- include('../partials/footer.ejs') %>
