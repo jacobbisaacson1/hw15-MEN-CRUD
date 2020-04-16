@@ -1,19 +1,37 @@
 const express = require('express')
 const router = express.Router()
-const Dog = require('../models/dog')
+// const Dog = require('../models/dog')
 const Owner = require('../models/owner')
 
-
+// index
 router.get('/', (req, res) => {
-    res.send('owners controller working')
+    Owner.find({}, (err, foundOwners) => {
+        if(err) {
+            next(err)
+        } else {
+            console.log(foundOwners);
+            res.render('owners/index.ejs', {
+                owners: foundOwners
+            })
+        }
+    })
 })
 //owner new route, get 
 router.get('/new', (req, res) => {
     res.render('owners/new.ejs')
 })
-
+//create
 router.post('/', (req, res, next) => {
-    res.send('hitting post route')
+    Owner.create(req.body, (err, createdOwner) => {
+        if(err) {
+            next(err)
+        } else {
+            console.log("\nhere's the created owner");
+            console.log(createdOwner);
+            res.redirect('/owners')
+        }
+    })
+
 })
 
 

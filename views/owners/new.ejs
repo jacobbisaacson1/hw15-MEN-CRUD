@@ -3,7 +3,7 @@
 
 <h2>Create New Owner</h2>
 
-  <form>
+  <form method="POST" action="/owners">
     <fieldset>
       <label for="name">Name:</label>
       <input 
@@ -15,9 +15,15 @@
     </fieldset>
 
     <fieldset>
-      <label for="scratchesToGive">Do you Give Scratches?</label>
-      <input id="scratchesToGive" type="checkbox" name="scratchesToGive">
-    </fieldset> 
+      <label for="scratches">Talk about scratching your dog:</label>
+      <input 
+        id="scratches" 
+        type="text" 
+        name="scratches" 
+        placeholder="Talk about scratching your dog" 
+      />
+    </fieldset>
+
 
 
     <button>Add Human</button>   

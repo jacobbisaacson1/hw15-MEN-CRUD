@@ -5,8 +5,8 @@ const ownerSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	scratchesToGive: {
-		type: Boolean,
+	scratches: {
+		type: String,
 		required: true,
   	}
   // 	dog: {

@@ -3,21 +3,9 @@
   <h2>Some Humans are OK, I guess</h2>
 
   <ul>
-    <% owners.forEach((article) => { %>
+    <% owners.forEach(owner => { %>
       <li>
-        <div>
-          <strong>
-            <a href="/owners/<%= owner.id %>">            
-              <%= owner.title %>
-            </a>
-          </strong>
-        </div>
-        <div>
-          <small><%= owner.posted.toLocaleString() %></small>         
-        </div>
-        <div>
-          (by: <%= owner.dog.name %>)
-        </div>
+        <%= owner.name %>
       </li>
     <% }) %>
   </ul>
