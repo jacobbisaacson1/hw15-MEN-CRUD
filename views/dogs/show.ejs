@@ -1,25 +1,17 @@
 <%- include('../partials/header.ejs') %>
 
-  <h2><%= dog.name %></h2>
+  <h2><%= dog.dogName %></h2>
+  <small> 
+    <a href="/owners/<%= dog.owner.id %>">
+      <%= dog.owner.name %>    
+    </a>
+  </small>
 
-  <h4>How many dogs is too many dogs?</h4>
-  <ul>
-    <% for(let i = 0; i < owners.length; i++) { -%>
-      <li>
-        <strong>
-          <a href="/owners/<%= owners[i].id %>"><%= owners[i].name %></a>
-        </strong>
-        (<%= owners[i].posted.toLocaleDateString() %>)
-      </li>
-    <% } -%>
-  </ul>
 
-  <div>
-    <a href="/dogs/<%= dog.id %>/edit">(Edit <%= dog.name %>)</a>
-  </div>
+  <article>
+    <%= dog.body %>
+  </article>
 
-  <form method="POST" action="/dogs/<%= dog.id %>?_method=DELETE">
-    <button> Delete <%= dog.name %></button>
-  </form>
+<!-- -->
 
 <%- include('../partials/footer.ejs') %>

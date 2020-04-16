@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-// const Dog = require('../models/dog')
+const Dog = require('../models/dog')
 const Owner = require('../models/owner')
 
 // index
@@ -26,8 +26,14 @@ router.get('/:id', (req, res, next) => {
     Owner.findById(req.params.id, (err, foundOwner) => {
         if(err) next(err)
         else {
-            res.render('owners/show.ejs', {
-                owner: foundOwner
+            Dog.find({ owner: req.params.id }, (dogFindErr, foundDogs) => {
+                if(dogFindErr) next(dogFindErr)
+                  else {
+                     res.render('owners/show.ejs', {
+                        owner: foundOwner,
+                        dogs: foundDogs
+                    })
+                }
             })
         }
     })

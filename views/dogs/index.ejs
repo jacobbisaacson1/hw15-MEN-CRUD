@@ -3,11 +3,14 @@
   <h2>Look at These Pups!</h2>
 
   <ul>
-    <% dogs.forEach(dog => { %>
+    <% dogs.forEach((dog) => { %>
       <li>
-        <a href="/dogs/<%= dog.id %>">
-          <%= dog.name %>        
-        </a>
+        <div>
+          <%= dog.dogName %>
+        </div>
+        <div>
+          (owner: <%= dog.owner.name %>)
+        </div>
       </li>
     <% }) %>
   </ul>

@@ -2,7 +2,16 @@
 
 
   <h2><%= owner.name %></h2>
-
+  <h4>Dogs Owned</h4>
+    <ul>
+    <% for(let i = 0; i < dogs.length; i++) { -%>
+      <li>
+        <strong>
+          <a href="/dogs/<%= dogs[i].id %>"><%= dogs[i].dogName %></a>
+        </strong>
+      </li>
+   	 <% } -%>
+  	</ul>
   <div>
     <a href="/owners/<%= owner.id %>/edit">(Edit <%= owner.name %>)</a>
   </div>

@@ -3,6 +3,18 @@ const router = express.Router()
 const Dog = require('../models/dog')
 const Owner = require('../models/owner')
 
+//index
+router.get('/', (req, res, next) => {
+    Dog.find({}).populate('owner').exec((err, foundDogs) => {
+        if(err) next(err)
+            else {
+                res.render('dogs/index.ejs', {
+                    dogs: foundDogs
+                })
+            }
+    })
+})
+
 router.get('/new', (req, res, next) => {
     Owner.find({}, (err, foundOwners) => {
         if(err) next(err)
@@ -14,11 +26,22 @@ router.get('/new', (req, res, next) => {
     })
 })
 
+router.get('/:id', (req, res, next) => {
+    Dog.findById(req.params.id).populate('owner').exec((err, foundDog) => {
+        if(err) next(err)
+        else {
+            res.render('dogs/show.ejs', {
+                dog: foundDog
+            })
+        }
+    })
+})
+
 router.post('/', (req, res, next) => {
     Dog.create(req.body, (err, createdDog) => {
         if(err) next(err)
             else {
-                res.send(createdDog)
+                res.redirect('/dogs')
             }
     })
 })
