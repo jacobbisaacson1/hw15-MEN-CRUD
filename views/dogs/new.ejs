@@ -2,6 +2,16 @@
 
   <h1>Say nice things about your DOG!</h1>
 
+  <div>
+    <label for="owner-select">Choose Owner:</label>
+    <select name="owner" id="owner-select">
+      <option value="" disabled selected>(choose an owner)</option>
+      <% owner.forEach((owner) => { %>
+        <option value="<%= owner.id %>"><%= owner.name %></option>
+      <% }) %>
+    </select>        
+  </div>
+
   <form method="POST" action="/dogs">
     <fieldset>
       <label for="dogName">Name:</label>
@@ -22,5 +32,7 @@
         placeholder="What's your dog's mood?" 
       />
     </fieldset>
+    <button>Create Pup!</button>
+  </form>
 
 <%- include('../partials/footer.ejs') %>
