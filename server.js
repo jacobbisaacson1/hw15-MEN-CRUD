@@ -21,6 +21,9 @@ app.use('/dogs', dogController)
 const ownerController = require('./controllers/ownerController')
 app.use('/owners', ownerController)
 
+
+
+
 app.get('/', (req, res) => {
   res.render('home.ejs')
 })

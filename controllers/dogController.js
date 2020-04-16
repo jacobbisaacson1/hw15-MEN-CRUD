@@ -1,21 +1,34 @@
 const express = require('express')
 const router = express.Router()
-const Dog = require('../models/dog')
+// const Dog = require('../models/dog')
 const Owner = require('../models/owner')
 
-// get  index
-router.get('/', async (req, res, next) => {
-  try {
-    const foundDogs = await Dog.find({}).populate('dogs')
-    console.log("\nfound dogs")
-    console.log(foundDogs);
-    res.render('dogs/index.ejs', {
-      dogs: foundDogs
+router.get('/new', (req, res, next) => {
+    Owner.find({}, (err, foundOwners) => {
+        if(err) next(err)
+            else {
+                res.render('dogs/new.ejs', {
+                    owner: foundOwners
+                })
+            }
     })
-  } catch(err) {
-    next(err)
-  }
 })
+
+
+
+// get  index
+// router.get('/', async (req, res, next) => {
+//   try {
+//     const dogsWithOwners = await Dog.find({}).populate('dogs')
+//     console.log("\nfound dogs")
+//     console.log(foundDogs);
+//     res.render('dogs/index.ejs', {
+//       dogs: foundDogs
+//     })
+//   } catch(err) {
+//     next(err)
+//   }
+// })
 
 // router.get('/new', (req, res) => {
 //     res.render('dogs/new.ejs')

@@ -9,10 +9,6 @@ const dogSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	cuteness: {
-		type: Number,
-		required: true,
-	},
 	owner: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Owner"

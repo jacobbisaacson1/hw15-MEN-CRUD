@@ -1,34 +1,26 @@
 <%- include('../partials/header.ejs') %>
 
-  <h1>Say things about your DOG!</h1>
+  <h1>Say nice things about your DOG!</h1>
 
-  <form method="POST" action="/dog">
+  <form method="POST" action="/dogs">
     <fieldset>
-      <label for="mood">What's Your Dog's Mood?</label>
-        <select name="moods" id="mood-select">
-          <option value="">--Please choose an mood--</option>
-          <option value="sweet">Sweet</option>
-          <option value="special">Special</option>
-          <option value="tired">Tired</option>
-          <option value="super-cute">Super Cute</option>
-          <option value="playful">Playful</option>
-          <option value="mad">Mad</option>
-        </select>
+      <label for="dogName">Name:</label>
+      <input 
+        id="dogName" 
+        type="text" 
+        name="dogName" 
+        placeholder="Enter Dog's Name" 
+      />
     </fieldset>
-    <fieldset>
-      <label for="cuteness">How Cute?!:</label>
-      <input id="cuteness" type="number" name="cuteness" placeholder="How cute?" />
-    </fieldset>
-    <fieldset>
-      <label for="hungry">Hungers!?</label>
-      <input id="hungry" type="checkbox" name="hungry">
-    </fieldset>
-    <fieldset>
-      <label for="scratchesNeeded">nEeDs ScRaTcHeS!</label>
-      <input id="scratchesNeeded" type="checkbox" name="scratchesNeeded">
-    </fieldset>
-    <button>Talk about your DOG!</button>
 
-  </form>
+    <fieldset>
+      <label for="mood">What's youd dog's mood?:</label>
+      <input 
+        id="mood" 
+        type="text" 
+        name="mood" 
+        placeholder="What's your dog's mood?" 
+      />
+    </fieldset>
 
 <%- include('../partials/footer.ejs') %>
