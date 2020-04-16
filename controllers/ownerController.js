@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
         if(err) {
             next(err)
         } else {
-            console.log(foundOwners);
+            // console.log(foundOwners);
             res.render('owners/index.ejs', {
                 owners: foundOwners
             })
@@ -20,21 +20,44 @@ router.get('/', (req, res) => {
 router.get('/new', (req, res) => {
     res.render('owners/new.ejs')
 })
+
+//show owner page get
+router.get('/:id', (req, res, next) => {
+    Owner.findById(req.params.id, (err, foundOwner) => {
+        if(err) next(err)
+        else {
+            res.render('owners/show.ejs', {
+                owner: foundOwner
+            })
+        }
+    })
+})
+
+
+
 //create
 router.post('/', (req, res, next) => {
     Owner.create(req.body, (err, createdOwner) => {
         if(err) {
             next(err)
         } else {
-            console.log("\nhere's the created owner");
-            console.log(createdOwner);
+            // console.log("\nhere's the created owner");
+            // console.log(createdOwner);
             res.redirect('/owners')
         }
     })
 
 })
 
-
+// destroy
+router.delete('/:id', (req, res, next) => {
+    Owner.findByIdAndRemove(req.params.id, (err, deletedOwner) => {
+        if(err) nest(err)
+            else{
+                res.redirect('/owners')
+            }
+    })
+})
 
 // article index route: GET /articles
 // router.get('/', async (req, res, next) => {

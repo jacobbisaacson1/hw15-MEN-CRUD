@@ -5,7 +5,9 @@
   <ul>
     <% owners.forEach(owner => { %>
       <li>
-        <%= owner.name %>
+        <a href="/owners/<%= owner.id %>">
+          <%= owner.name %>
+        </a>
       </li>
     <% }) %>
   </ul>
